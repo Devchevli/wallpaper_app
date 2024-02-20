@@ -66,7 +66,7 @@ Future<List<CategoryModel>> getCategoriesList() async {
 
     List<WallPaperModel> photos = await getSearchWallpaper(catName);
 
-    if (photos.isEmpty) {
+    if (photos.isNotEmpty) {
       WallPaperModel photoModel = photos[_random.nextInt(photos.length)];
 
       categoryModelList

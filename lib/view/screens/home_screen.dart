@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:wallpaper_app/view/screens/categories_screens.dart';
 import '../../controllers/api_operation.dart';
 import '../../models/categories_model.dart';
 import '../../models/wallpaper_models.dart';
@@ -21,9 +25,9 @@ class _HomeScreenState extends State<HomeScreen> {
   TextEditingController _searchController = TextEditingController();
 
   getCategoryDetails() async {
-    categoryModelList = await ApiOperation().getCategoriesList();
+    List<CategoryModel> categoryModelListt = await ApiOperation().getCategoriesList();
     setState(() {
-      categoryModelList = categoryModelList;
+      categoryModelList = categoryModelListt;
     });
   }
 
@@ -51,7 +55,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Column(
         children: [
-          const SizedBox(height: 40,),
+          const SizedBox(
+            height: 40,
+          ),
           Container(
             alignment: Alignment.center,
             margin: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
@@ -69,18 +75,29 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 20,
           ),
           Container(
-            height: 70,
-            margin: EdgeInsets.only(left: 20.0),
-            width: MediaQuery.of(context).size.width,
+            height: 100,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: categoryModelList.length,
-              itemBuilder: ((context, index) => CategoriesBox(
+              itemBuilder: (context, index) => CategoriesBox(
                 categoryImgSrc: categoryModelList[index].catImgUrl,
                 categoryName: categoryModelList[index].catName,
-              )),
+              ),
             ),
           ),
+          // Container(
+          //   height: 70,
+          //   margin: EdgeInsets.only(left: 20.0),
+          //   width: MediaQuery.of(context).size.width,
+          //   child: ListView.builder(
+          //     scrollDirection: Axis.horizontal,
+          //     itemCount: categoryModelList.length,
+          //     itemBuilder: ((context, index) => CategoriesBox(
+          //           categoryImgSrc: categoryModelList[index].catImgUrl,
+          //           categoryName: categoryModelList[index].catName,
+          //         )),
+          //   ),
+          // ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12.0),

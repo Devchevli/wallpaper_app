@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class FullScreenView extends StatelessWidget {
   String imgSrc;
+
   FullScreenView({super.key, required this.imgSrc});
 
   // final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -41,8 +42,6 @@ class FullScreenView extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-
-
           Container(
             alignment: Alignment.bottomCenter,
             height: MediaQuery.of(context).size.height,
