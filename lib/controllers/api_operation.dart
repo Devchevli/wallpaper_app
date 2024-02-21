@@ -16,7 +16,7 @@ class ApiOperation {
     Response response =
         await get(Uri.parse("https://api.pexels.com/v1/curated"), headers: {
       "Authorization":
-          "gwm9kt63aaRHh1z4gVfO5WcflsY2DzuBaCykXTrLsjQt9ckwkgmPUTOP"
+          "IHvWilK6Y7KIKi7fme4bbG47LXyFQOAQPgdVDIDV0w8Z1J9vAPJuH8Y4"
     });
 
     Map<String, dynamic> json = jsonDecode(response.body);
@@ -36,7 +36,7 @@ class ApiOperation {
             "https://api.pexels.com/v1/search?query=$query&per_page=1000&per_page=1"),
         headers: {
           "Authorization":
-              "gwm9kt63aaRHh1z4gVfO5WcflsY2DzuBaCykXTrLsjQt9ckwkgmPUTOP"
+              "IHvWilK6Y7KIKi7fme4bbG47LXyFQOAQPgdVDIDV0w8Z1J9vAPJuH8Y4"
         });
 
     Map<String, dynamic> json = jsonDecode(response.body);
