@@ -52,27 +52,49 @@ class FullScreenView extends StatelessWidget {
                               AsyncWallpaper.setWallpaper(url: imgSrc,
                                 errorToastDetails: ToastDetails.error(),
                                 goToHome: true,
-                                wallpaperLocation: AsyncWallpaper.BOTH_SCREENS,
+                                wallpaperLocation: AsyncWallpaper.HOME_SCREEN,
                                 toastDetails: ToastDetails.success(),
                               );
                             },
                             child: Text('Home Screen'),
-                          )
+                          ),
+                          CupertinoActionSheetAction(
+                            onPressed: () {
+                              AsyncWallpaper.setWallpaper(url: imgSrc,
+                                errorToastDetails: ToastDetails.error(),
+                                goToHome: true,
+                                wallpaperLocation: AsyncWallpaper.LOCK_SCREEN,
+                                toastDetails: ToastDetails.success(),
+                              );
+                            },
+                            child: Text('Lock Screen'),
+                          ),
+                          CupertinoActionSheetAction(
+                            onPressed: () {
+                              AsyncWallpaper.setWallpaper(url: imgSrc,
+                                errorToastDetails: ToastDetails.error(),
+                                goToHome: true,
+                                wallpaperLocation: AsyncWallpaper.BOTH_SCREENS,
+                                toastDetails: ToastDetails.success(),
+                              );
+                            },
+                            child: Text('Both Screen'),
+                          ),
                         ],
                       ),
                     );
                   },
-                child: const Text(
-                  "Set Wallpaper",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.normal,
+                  child: const Text(
+                    "Set Wallpaper",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.normal,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
           )
         ],
       ),
